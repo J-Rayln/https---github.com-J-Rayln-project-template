@@ -1,0 +1,19 @@
+
+// base/
+// - root, reset, utility classes, and other project-wide styles
+@forward 'base/root';
+@forward 'base/reset';
+@forward 'base/typography';
+
+// layout/
+// - structural layout (e.g. grid layout, nav, header, footer, etc.)
+@forward 'layout/header';
+
+// components/
+// - reusable items like buttons, forms, etc.
+@forward 'components/buttons';
+
+// pages/
+// - page-specific styles
+// - secttions should be broekn down by _{page_name}-{section_name}
+@forward 'pages/home';

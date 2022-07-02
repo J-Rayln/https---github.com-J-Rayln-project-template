@@ -1,0 +1,15 @@
+# src files/directories we don't need
+app/src/_view
+app/src/img
+app/*.html
+
+# can't forget the gode ole...
+node_modules
+.DS_Store
+
+# and any miscellaneous file formats we don't need
+notes.md
+design/
+*.sketch
+*.xd
+*.fig

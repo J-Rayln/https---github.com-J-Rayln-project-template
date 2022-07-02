@@ -1,0 +1,70 @@
+
+
+// Colors
+$colors: (
+    "primary": (
+        "100":    hsl(243, 87%, 12%), // Very Dark Blue
+        "200":    hsl(238, 22%, 44%), // Desaturated Blue
+    ),
+    "accent": (
+        "100":    hsl(224, 93%, 58%), // Bright Blue
+        "200":    hsl(170, 45%, 43%), // Moderate Cyan
+    ),
+    "neutral": (
+        "100":    hsl(240, 75%, 98%), // Light Grayish Blue
+        "200":    hsl(0, 0%, 75%),    // Light Gray
+    ),
+);
+
+
+// Container Widths
+// 
+// Thes values are DIFFERENT that breakpoints used in media
+// queries.  Those values are stored in the _breakpoints.scss partial
+// Values in these variables are used to calculate things like
+// container widths.
+$max-width-phone:   '';
+$max-width-tablet:  '';
+$max-width-desktop: '';
+
+
+// Typography Info
+// 
+// These variables control most of the core typography.  :root 
+// level CSS custom properties are created from these vriables
+// and maps.
+
+// Make sure to wrap stacks in () because they contain commas
+$font-families: (
+    "body": ('Open Sans', sans-serif),
+);
+
+// Font sizes MUST be in rems for clamp function to work.
+// Ff there is no min/max, set the 'min' and 'max' to the SAME value.
+// Comment out values you don't need or add more using the same format.
+$font-sizes: (
+    "body": (
+        "min": .875rem, // 14px
+        "max": 1rem // 16px
+    ),
+    "h1": (
+        "min": 1.25rem, // 14px
+        "max": 2rem // 32px
+    ),
+    "h2": (
+        "min": .875rem, // 14px
+        "max": 2rem // 32px
+    ),
+    "h3": (
+        "min": 1rem, // 16px
+        "max": 1rem // 16px
+    ),
+);
+
+// Comment out what you don't need.  Add/change values you need.
+$font-weights: (
+    "light":  300,
+    "normal": 400,
+    "bold":   700,
+    "black":  900,
+);

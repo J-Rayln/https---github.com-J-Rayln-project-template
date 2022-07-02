@@ -1,0 +1,31 @@
+@use 'sass:math';
+@use 'breakpoints' as *;
+
+// Typography 
+// 
+// This file contains @mixins and @functions for use with typography.  Set
+// variable values in the _variables.scss partial file.
+
+
+// variables for use in the fluid-font() function.  Values are pulled from the
+// _breakpoints.scss partial and changed from 'em' units to 'rem' units.
+$vpmin: math.div(map-get($breakpoints, "xs"), 1em) * 1rem;
+$vpmax: math.div(map-get($breakpoints, "lg"), 1em) * 1rem;
+
+// function to build the clamp value for variable font sizes
+@function fluid-font($size-at-min-width, $size-at-max-width, $min-width: $vpmin, $max-width: $vpmax) {
+    // check to see if the min and max font sizes are the same
+    @if $size-at-min-width == $size-at-max-width {
+        // If they are, don't build a clamp function.  Just return the value of the max.
+        @return $size-at-max-width;
+    } @else {
+        // calculate the slope
+        $slope: math.div($size-at-max-width - $size-at-min-width, $max-width - $min-width);
+        // calculate the point the slope crosses the y axis
+        $y-axis-intersection: -1 * $min-width * $slope + $size-at-min-width;
+        // build the clamp function that will be the value for the font-size property
+        $return-value: clamp(#{$size-at-min-width}, #{$y-axis-intersection} + #{$slope} * 100vw, #{$size-at-max-width});
+        
+        @return $return-value;
+    }
+}

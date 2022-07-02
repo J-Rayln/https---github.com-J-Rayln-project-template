@@ -1,0 +1,27 @@
+@use 'sass:math';
+
+// calcluate rem units for pixel values
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// --- calculateions assume defauly font size of 1rem/em = 16px
+// 
+// --- to calculate rems based on a DIFFERENT base font size, include
+//     the second argument.
+// 
+//  ex: rem(30, 15) gives a result of (30 / 15) = 2rem
+//      rem(30) gives a result of (30 / 16) = 1.875rem
+
+@function rem($pixels, $base-size: 16) {
+    @if math.is-unitless($pixels) {
+        @return math.div($pixels, $base-size) * 1rem;
+    } @else {
+        @error "Pixel values must be an integer.  Do not include \"px,\" \"rem,\" or other units.";
+    }
+}
+
+@function em($pixels, $base-size: 16) {
+    @if math.is-unitless($pixels) {
+        @return math.div($pixels, $base-size) * 1em;
+    } @else {
+        @error "Pixel values must be an integer.  Do not include \"px,\" \"em,\" or other units.";
+    }
+}

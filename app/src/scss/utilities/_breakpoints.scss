@@ -1,0 +1,33 @@
+// Breakpoints
+// 
+// To set max container widths, edit the _variables.scss file
+// 
+// Source:  https://www.barrage.net/blog/technology/top-8-sass-mixins
+
+
+$breakpoints:  (
+  "xs": 25em, // 400px
+  "sm": 34em, // 544px
+  "md": 48em, // 768px
+  "lg": 60em, // 960px
+  "xl": 80em, // 1280px
+  "xxl": 90em // 1440px
+);
+
+// Creates min-width @media queries
+@mixin respond-above($breakpoint) {
+  // If the breakpoint exists in the map.
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Get the breakpoint value.
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+    // Write the media query.
+    @media (min-width: $breakpoint-value) {
+      @content;
+    }
+    // If the breakpoint doesn't exist in the map.
+  }
+  @else {
+    // Log a warning.
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
