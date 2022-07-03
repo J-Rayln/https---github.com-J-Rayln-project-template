@@ -2,6 +2,7 @@
 app/src/_view
 app/src/img
 app/*.html
+app/dist/
 
 # can't forget the gode ole...
 node_modules
