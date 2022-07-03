@@ -11,6 +11,7 @@ const jsMinify = require('gulp-terser');
 // utility
 const fileSync = require('gulp-file-sync');
 const browserSync = require('browser-sync').create();
+const del = require('del');
 
 // source paths
 var paths = {
@@ -32,6 +33,30 @@ var paths = {
         dest: 'app/dist/img'
     }
 }
+
+// Delete the dist folder so it's clean
+function clean(cb) {
+    del([
+        // 'app/dist/*.html',
+        'app/dist',
+        'app/src/_view',
+        '!app/dist/css/**/*',
+    ]);
+    cb();
+}
+
+
+// gulp.task('clean:mobile', function (cb) {
+//     del([
+//       'app/dist/*.html',
+//     //   Here we use a wildcard pattern to match everything in the `mobile` folder'dist
+//     //   'dist/mobile/**/*',
+//     //   We don’t want to delete this file, so We reverse this matching pattern
+//     //   '!dist/mobile/deploy.json'
+//     ], cb);
+//   });
+  
+//   gulp.task('default', ['clean:mobile']);
 
 // outputs final CSS for distribution
 function stylesTask() {
@@ -105,3 +130,12 @@ exports.default = series(
     browserSyncServe,
     watchTask
 );
+
+exports.clean = series(
+    clean,
+    stylesTask,
+    stylesViewTask,
+    scriptsTask,
+    htmlTask,
+    imagesTask
+    );
