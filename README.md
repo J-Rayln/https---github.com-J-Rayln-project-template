@@ -46,7 +46,6 @@ app/
 |        |- _typography.scss   # Typography vars, functions, & mixins
 |        |- _variables.scss    # Global config variables & maps
 |     main.scss
-|  |- index.html               # sample HTML file
 .gitignore
 gulpfile.js
 package-lock.json
@@ -72,3 +71,11 @@ Running `npm start` will run the following tasks:
 | `watchTask` | Runs all tasks above and watches for changes to *.js, *.html, *.scss, and image files. |
 
 ##Sass
+
+## Change Log
+
+### 03 JUL 2022
+- Added "clean" task to Gulp workflow
+    - Deletes the `app/dist` and `app/src/_view` directories and rebuilds them to remove any unused files
+    - Add `del` package to support task
+- Started Change Log
