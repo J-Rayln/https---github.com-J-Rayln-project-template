@@ -3,7 +3,7 @@
 A basic repo template for web projects.  I created this to suit my personal needs for small to mid sized projects but thought someone else might run across it and find it helpful.
 
 ## Table of Contents
-- [Gulp Workflow Tasks](##Gulp WOrkflow Tasks)
+- [Gulp Workflow Tasks](#gulp-workflow-tasks)
 
 
 ## Gulp Workflow Tasks
